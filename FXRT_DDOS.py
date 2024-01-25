@@ -67,7 +67,7 @@ while True:
     run_url = True
     while run_url:
         http_url = input(Fore.GREEN + "Enter URL>> ")
-        if not http_url.startswith("http"):
+        if http_url.startswith("https"):
             print("wrong url. you can,t ddos https")
             pass
         elif not http_url.__contains__("."):
