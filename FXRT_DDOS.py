@@ -115,4 +115,4 @@ while True:
         thr_7.start()
         i = i + 1
         thr_8.start()
-        print(f"threads send: {str(i + 1)} to {target}")
+        print(f"threads send: {str(i + 1)} to {http_url}")
