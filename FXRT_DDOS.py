@@ -109,4 +109,4 @@ while True:
         thr_6.start()
         thr_7.start()
         thr_8.start()
-        
+        print(f"waiting for {http_url} to accept")
