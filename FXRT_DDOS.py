@@ -80,7 +80,7 @@ def dos_trget(target,st,portp):
                 rves = requests.get(target)
                 rxes = requests.get(target)
                 try:
-                    print(f"Requests: {bytes_num} sented to {target}")
+                    print(f"Request sented to {target}")
                 except:
                     exit()
 #
