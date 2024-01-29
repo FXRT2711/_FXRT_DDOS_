@@ -63,6 +63,7 @@ def dos_trget(target,st):
 #
             else:
                 rves = requests.get(target)
+                rxes = requests.get(target)
                 try:
                     print(f"Request sented to {target}")
                 except:
